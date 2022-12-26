@@ -6,3 +6,29 @@ html(lang="en")
         link(rel="stylesheet", href="/style.css")
         title New User
     body 
+        form(style="display: flex; flex-direction: column;" action="/add-User" method="post")
+            table 
+                tbody 
+                    tr 
+                        th Username
+                        td(class="exempt")
+                            input(type="text", name="username",   id="username", required) 
+                    tr 
+                        th First Name
+                        td(class="exempt")
+                            input(type="text",  name="firstName", id="firstName", required)
+                    tr 
+                        th Last Name
+                        td(class="exempt")
+                            input(type="text",  name="lastName",  id="lastName",  required) 
+                    tr 
+                        th Email
+                        td(class="exempt")
+                            input(type="email",  name="email",    id="email",  required) 
+                    tr 
+                        th Age
+                        td.exempt 
+                            input(type="number",  name="age",     id="age",  required) 
+                    tr 
+                        th(colspan="2", class="exempt") 
+                            button(type="submit") Submit

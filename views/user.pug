@@ -6,4 +6,19 @@ html(lang="en")
         link(rel="stylesheet", href="/style.css")
         title Users
     body 
-        
+        table 
+            thead 
+                tr 
+                    th(colspan="100%", class="exempt") 
+                        form(style="display: flex; flex-direction: column;" action="/home" method="get")
+                            button(type="submit")  View all users
+            tbody
+                form(action=`/update-user/${chosenUser.id}`, method="post")
+                    each val, index in Object.keys(user)
+                        tr
+                            th= val
+                            td.exempt
+                                input(type=user[val][1],  name=val,  id=val,  required, value=user[val][0]) 
+                    tr 
+                        th(colspan="100%", class="exempt")  
+                            button(type="submit") Change Info 

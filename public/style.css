@@ -1,0 +1,72 @@
+body{
+    width: 100vw;
+    max-height: 100vh;
+    margin: 0;
+    padding: 5% 0;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+}
+table, th, td {
+    border: 1.5px solid black;
+    border-collapse: collapse;
+ }
+ th:not(.exempt), td:not(.exempt) {
+    padding: min(1vw, 5px) min(3vw, 25px);
+ }
+.exempt{
+    overflow: hidden;
+}
+table{
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+th *, td *{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .2s;
+    width: 100%;
+    margin: 0;
+    outline: none;
+    border: none;
+    height: 100%;
+}
+button:hover{
+    transform: scale(1.1);
+    transform-origin: top;
+}
+[contenteditable="true"]{
+    overflow: hidden;
+    position: relative;
+    transition: .2s;
+}
+[contenteditable="true"]:focus{
+    outline-offset: 1px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -2px 0px inset;
+}
+[contenteditable="true"]:focus::before{
+    filter: opacity(1);
+    transform: none;
+}
+[contenteditable="true"]:hover::before{
+    transform: none;
+}
+[contenteditable="true"]::before{
+    filter: opacity(.5);
+    transform: translateX(20px);
+    transition: .2s;
+    content: '';
+    position: absolute;
+    background-size: contain;
+    background-image: url(./icons/pencil-square.svg);
+    width: 10px;
+    height: 10px;
+    top: min(.5vw, 5px);
+    right: min(.5vw, 5px);
+}
+[contenteditable="true"]::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+}

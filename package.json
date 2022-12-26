@@ -1,6 +1,29 @@
 {
   "dependencies": {
     "express": "^4.18.2",
-    "pug": "^3.0.2"
-  }
+    "pug": "^3.0.2",
+    "uuid": "^9.0.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "dec-20-user-proj",
+  "version": "1.0.0",
+  "description": "Pug and Express backend MTEC user management project",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/portalpap/User-Manager-project.git"
+  },
+  "keywords": [
+    "Pug",
+    "Express",
+    "Backend"
+  ],
+  "author": "Cole Nelson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/portalpap/User-Manager-project/issues"
+  },
+  "homepage": "https://github.com/portalpap/User-Manager-project#readme"
 }

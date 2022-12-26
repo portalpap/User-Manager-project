@@ -7,9 +7,20 @@ html(lang="en")
         title Users
     body 
         table 
+            thead 
+                tr 
+                    th(colspan="100%", class="exempt") 
+                        form(style="display: flex; flex-direction: column;" action="/create-User" method="get")
+                            button(type="submit")  Add New User
+                tr
+                    each val in Object.keys(users[0])
+                        th= val
+                    td 
             tbody 
-                tr 
-                    th 
-                        button(type="submit") Add User
-                tr 
-                    th 
+                each va, index in users 
+                    tr 
+                        each val in users[index]
+                            td= val
+                        th(class="exempt")
+                            form(action=`/user/${userDatabase[index].id}`, method="get") 
+                                button(type="submit") Edit
