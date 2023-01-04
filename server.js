@@ -86,11 +86,16 @@ app.post('/update-user/:id', (req, res) => {
         chosenUser["email"]     = email;
         chosenUser["age"]       = age;
         userDatabase[getUserSpotByID(id)] = chosenUser;
-        console.log(chosenUser);
     }
     res.redirect(`/home`);
 });
-
+app.post('/delete-user/:id', (req, res) => {
+    const id = req.params.id;
+    if(getUserSpotByID(id) !== false){
+        userDatabase.splice(getUserSpotByID(id), 1);
+    }
+    res.redirect('/home');
+})
 app.get('/user/:id', (req, res) => {
     const id = req.params.id;
     if(getUserSpotByID(id) === false){

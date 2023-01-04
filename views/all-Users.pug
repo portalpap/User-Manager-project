@@ -9,18 +9,22 @@ html(lang="en")
         table 
             thead 
                 tr 
-                    th(colspan="100%", class="exempt") 
+                    th(style="min-width:50vw" colspan="100%", class="exempt") 
                         form(style="display: flex; flex-direction: column;" action="/create-User" method="get")
                             button(type="submit")  Add New User
                 tr
-                    each val in Object.keys(users[0])
-                        th= val
-                    td 
+                    if users.length
+                        each val in Object.keys(users[0])
+                            th= val
+                        td 
+                    else 
+                        td(style="text-align: center") --There Are No Current Users--
             tbody 
-                each va, index in users 
-                    tr 
-                        each val in users[index]
-                            td= val
-                        th(class="exempt")
-                            form(action=`/user/${userDatabase[index].id}`, method="get") 
-                                button(type="submit") Edit
+                if users.length
+                    each va, index in users 
+                        tr 
+                            each val in users[index]
+                                td= val
+                            th(class="exempt")
+                                form(action=`/user/${userDatabase[index].id}`, method="get") 
+                                    button(type="submit") Edit
